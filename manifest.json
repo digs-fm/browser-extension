@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Digs.fm",
+  "author": "The Digs.fm team",
+  "developer": {
+    "name": "Digs.fm",
+    "url": "https://github.com/digs-fm"
+  },
+  "version": "0.1",
+  "description": "Easily add links from Discogs, Spotify, Mixcloud & Bandcamp to your Digs.fm lists.",
+  "homepage_url": "https://github.com/digs-fm/browser-extension",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "activeTab",
+    "https://digs.fm/queued/*"
+  ],
+
+  "page_action": {
+    "default_icon": "icons/icon-48.png",
+    "default_title": "Want to Listen",
+    "browser_style": true,
+    "show_matches": [
+        "https://*.discogs.com/*/*",
+        "https://*.spotify.com/album/*",
+        "https://www.mixcloud.com/*/*",
+        "https://*.bandcamp.com/album/*"
+    ]
+  }
+}
