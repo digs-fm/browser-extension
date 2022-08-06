@@ -21,7 +21,14 @@ async function wantToListen(tab) {
     icon = iconError;
   }
 
-  browser.pageAction.setIcon({path: icon, tabId: tab.id});
+  chrome.pageAction.setIcon({path: icon, tabId: tab.id});
 }
 
-browser.pageAction.onClicked.addListener(wantToListen);
+function showAction(tabId, changeInfo, tab) {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.pageAction.show(tabs[0].id);
+  });
+};
+
+chrome.tabs.onUpdated.addListener(showAction);
+chrome.pageAction.onClicked.addListener(wantToListen);
