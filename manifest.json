@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Digs.fm",
+  "name": "Want to Listen",
   "author": "The Digs.fm team",
   "version": "0.3",
   "description": "Quickly add releases from Discogs, Spotify, Mixcloud or Bandcamp to your Digs.fm lists.",
