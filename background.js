@@ -24,11 +24,4 @@ async function wantToListen(tab) {
   chrome.pageAction.setIcon({path: icon, tabId: tab.id});
 }
 
-function showAction(tabId, changeInfo, tab) {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.pageAction.show(tabs[0].id);
-  });
-};
-
-chrome.tabs.onUpdated.addListener(showAction);
 chrome.pageAction.onClicked.addListener(wantToListen);

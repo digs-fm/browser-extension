@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Digs.fm",
   "author": "The Digs.fm team",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Quickly add releases from Discogs, Spotify, Mixcloud or Bandcamp to your Digs.fm lists.",
   "homepage_url": "https://digs.fm",
 
@@ -16,7 +16,6 @@
 
   "permissions": [
     "activeTab",
-    "tabs",
     "https://digs.fm/queued/add-from-extension"
   ],
 
