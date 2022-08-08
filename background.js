@@ -29,11 +29,14 @@ function showAction(tabId, changeInfo, tab) {
     let tab = tabs[0];
     let url = tab.url;
 
-    if (url.startsWith('https://www.discogs.com/master/*') ||
-      url.startsWith('https://www.discogs.com/release/*')  ||
-      url.startsWith('https://open.spotify.com/album/*')   ||
-      url.startsWith('https://www.mixcloud.com/*/*')       ||
-      url.startsWith('https://*.bandcamp.com/album/*')) {
+    if (url.startsWith('https://www.discogs.com/master/*')       ||
+      url.startsWith('https://www.discogs.com/release/*')        ||
+      url.startsWith('https://open.spotify.com/album/*')         ||
+      url.startsWith('https://www.mixcloud.com/*/*')             ||
+      url.startsWith('https://*.bandcamp.com/album/*')           ||
+      url.startsWith('https://musicbrainz.org/release/*')        ||
+      url.startsWith('https://musicbrainz.org/release-group/*')  ||
+    ) {
       chrome.pageAction.show(tabs.id);
     } else {
       chrome.pageAction.hide(tabs.id);

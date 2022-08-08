@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Want to Listen",
   "author": "The Digs.fm team",
-  "version": "0.3",
-  "description": "Quickly add releases from Discogs, Spotify, Mixcloud or Bandcamp to your Digs.fm lists.",
+  "version": "0.4",
+  "description": "Quickly add releases from various music sites to your 'Want to Listen' list on Digs.fm",
   "homepage_url": "https://digs.fm",
 
   "icons": {
