@@ -24,25 +24,33 @@ async function wantToListen(tab) {
   chrome.action.setIcon({path: icon, tabId: tab.id});
 }
 
-function showAction(tabId, changeInfo, tab) {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    let tab = tabs[0];
-    let url = tab.url;
+// The pages Digs can add releases from. Keep in sync with `show_matches` on the
+// firefox branch.
+const supportedPages = [
+  { hostEquals: 'www.discogs.com', pathPrefix: '/master/' },
+  { hostEquals: 'www.discogs.com', pathPrefix: '/release/' },
+  { hostEquals: 'open.spotify.com', pathPrefix: '/album/' },
+  { originAndPathMatches: '^https://www\\.mixcloud\\.com/[^/]+/[^/]+' },
+  { hostSuffix: '.bandcamp.com', pathPrefix: '/album/' },
+  { hostEquals: 'musicbrainz.org', pathPrefix: '/release/' },
+  { hostEquals: 'musicbrainz.org', pathPrefix: '/release-group/' },
+  { originAndPathMatches: '^https://soundcloud\\.com/[^/]+/[^/]+' },
+  { hostSuffix: '.tidal.com', pathPrefix: '/album/' },
+  { hostSuffix: '.tidal.com', pathPrefix: '/browse/album/' }
+];
 
-    if (url.startsWith('https://www.discogs.com/master/*')       ||
-      url.startsWith('https://www.discogs.com/release/*')        ||
-      url.startsWith('https://open.spotify.com/album/*')         ||
-      url.startsWith('https://www.mixcloud.com/*/*')             ||
-      url.startsWith('https://*.bandcamp.com/album/*')           ||
-      url.startsWith('https://musicbrainz.org/release/*')        ||
-      url.startsWith('https://musicbrainz.org/release-group/*')  ||
-    ) {
-      chrome.pageAction.show(tabs.id);
-    } else {
-      chrome.pageAction.hide(tabs.id);
-    }
+// The button starts disabled and Chrome enables it on supported pages, so the
+// extension never reads the tab's address (that would need a permission that
+// warns about access to the browsing history).
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.action.disable();
+
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
+    chrome.declarativeContent.onPageChanged.addRules([{
+      conditions: supportedPages.map(pageUrl => new chrome.declarativeContent.PageStateMatcher({ pageUrl })),
+      actions: [new chrome.declarativeContent.ShowAction()]
+    }]);
   });
-};
+});
 
-chrome.tabs.onUpdated.addListener(showAction);
 chrome.action.onClicked.addListener(wantToListen);

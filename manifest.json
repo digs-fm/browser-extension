@@ -15,7 +15,7 @@
   },
 
   "host_permissions": ["https://digs.fm/queued/add-from-extension"],
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "declarativeContent"],
 
   "action": {
     "default_icon": "icons/icon-48.png",
