@@ -30,7 +30,10 @@
         "https://www.mixcloud.com/*/*",
         "https://*.bandcamp.com/album/*",
         "https://musicbrainz.org/release/*",
-        "https://musicbrainz.org/release-group/*"
+        "https://musicbrainz.org/release-group/*",
+        "https://soundcloud.com/*/*",
+        "https://*.tidal.com/album/*",
+        "https://*.tidal.com/browse/album/*"
     ]
   }
 }
