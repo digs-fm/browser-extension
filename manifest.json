@@ -6,6 +6,12 @@
   "description": "Quickly add releases from various music sites to your 'Want to Listen' list on Digs.fm",
   "homepage_url": "https://digs.fm",
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ce6ec7bc-c5db-44eb-bc39-ec9bfc8e07cb}"
+    }
+  },
+
   "icons": {
     "48": "icons/icon-48.png"
   },
