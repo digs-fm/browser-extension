@@ -36,7 +36,9 @@ const supportedPages = [
   { hostEquals: 'musicbrainz.org', pathPrefix: '/release-group/' },
   { originAndPathMatches: '^https://soundcloud\\.com/[^/]+/[^/]+' },
   { hostSuffix: '.tidal.com', pathPrefix: '/album/' },
-  { hostSuffix: '.tidal.com', pathPrefix: '/browse/album/' }
+  { hostSuffix: '.tidal.com', pathPrefix: '/browse/album/' },
+  // only albums' playlist IDs start with OLAK5uy_
+  { hostEquals: 'music.youtube.com', pathEquals: '/playlist', queryPrefix: 'list=OLAK5uy_' }
 ];
 
 // The button starts disabled and Chrome enables it on supported pages, so the
