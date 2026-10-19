@@ -39,7 +39,8 @@
         "https://musicbrainz.org/release-group/*",
         "https://soundcloud.com/*/*",
         "https://*.tidal.com/album/*",
-        "https://*.tidal.com/browse/album/*"
+        "https://*.tidal.com/browse/album/*",
+        "https://music.youtube.com/playlist?list=OLAK5uy_*"
     ]
   }
 }
